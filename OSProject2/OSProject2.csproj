@@ -48,5 +48,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Examples\ExampleOutput.png" />
+    <Content Include="Examples\TestData.png" />
+    <Content Include="Instructions\Project2Instructions.txt" />
+    <Content Include="ProjectData\Easy.txt" />
+    <Content Include="ProjectData\Hard.txt" />
+    <Content Include="ProjectData\Medium.txt" />
+    <Content Include="ProjectData\Simple1.txt" />
+    <Content Include="ProjectData\Simple2.txt" />
+    <Content Include="ProjectData\textbook.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
