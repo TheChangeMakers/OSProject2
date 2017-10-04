@@ -1,0 +1,81 @@
+﻿Objective
+
+This project allows students to implement and examine the First-Come, First-Serves (FCFS), Shortest Job Next (SJN), Shortest Remaining Time (SRT), and the Round Robin scheduling algorithms, as well as analyze the performance of these algorithms.
+
+Task
+
+Note 1: You may use the programming language of your choice to implement the project.
+Note 2: Download the Project 2.zipView in a new window file to obtain the data files to use with this project.
+
+Create a program that simulates the four process scheduling algorithms.
+
+Your project will take in 2 arguments:
+
+p2 fn tq
+
+Where:
+
+p2 is the name of the executable
+fn is the name of the file that contains a sequence of jobs to use for the simulation
+tq is the Time Quantum value to use for the Round Robin algorithm
+Note: You will use the same Time Quantum value throughout a specific set of scenarios, but you will change the Time Quantum value later in the project while performing additional analysis of the Round Robin algorithm.
+
+For EACH input file (Easy, Medium and Hard), the program will:
+
+Read in the sequence of jobs from the specified fn
+Each job record contains the arrival time and the required time cycles for the job
+For example, the record 0, 4 indicates that a job arrived at the Ready queue at time zero and requires four time cycles to complete
+Perform a trace analysis on the job sequence using each of the four scheduling algorithms
+Use a Time Quantum of 3 for the Round Robin algorithm
+Report the results of each scheduling algorithm
+Determine the best scheduling algorithm for that sequence of jobs
+Note: Refer to the Example Output section for additional details.
+
+Once you have gathered data for the three input files (Easy, Medium and Hard):
+
+Using the Medium input file ONLY, run the program 6 additional times
+Use a DIFFERENT Time Quantum each time (1, 2, 5, 10, 15 and 20)
+Record the Average Turn-around Time for the Round Robin algorithm only after each run
+After completing the 6 additional program runs, analyze the Average Turn-around Time data for the different Time Quantum settings:
+
+Determine which of the 6 Time Quantum settings produced the best results (Best TQ)
+Explain why the Best TQ produced the best results
+If the Time Quantum setting was infinite (a very large value), what is the best Average Turn-around Time result (in general) that the Round Robin algorithm could ever achieve? Explain your answer.
+Description of Scheduling Algorithms
+
+First-Come, First-Served (FCFS)
+
+First-Come, First-Served is a strict queuing scheme based on the First-In, First-Out (FIFO) principle. Whenever an executing process terminates (the process has completed its task), select the next process in the Ready queue, which is also the process that has been waiting the longest, to execute. Since the FCFS algorithm is non-preemptive, once a process begins to execute, the process will continue to execute until it completes its task and terminates. This will continue until all the processes have terminated.
+
+Shortest Job Next (SJN)
+
+Shortest Job Next is a priority-based queuing scheme, which places priority on jobs that require the least amount of time to complete their tasks and terminate (shortest execution time). Whenever an executing process terminates (the process has completed its task), select the process from the Ready queue with the shortest execution time to execute. Since the SJN algorithm is non-preemptive, once a process begins to execute, the process will continue to execute until it completes its task and terminates. This will continue until all the processes have terminated.
+
+Shortest Remaining Time (SRT)  1
+
+Shortest Remaining Time is a preemptive version of SJN, but unlike SJN, once a process begins to execute, its execution can stop whenever the process terminates or any time another process with a shorter remaining execution time enters the Ready queue. Whenever an executing process terminates (the process has completed its task), select the process from the Ready queue with the shortest remaining execution time to execute. Whenever a process with a shorter remaining execution time enters the Ready queue, return the executing process to the Ready queue, and select the process from the Ready queue with the shortest remaining execution time to execute. This will continue until all the processes have terminated.
+
+Round Robin 1
+
+Round Robin is a preemptive version of FCFS, but unlike FCFS, once a process begins to execute, its execution can stop whenever the process terminates or its allowable period of execution (referred to as the Time Quantum) has expired (timed out). Whenever an executing process terminates (the process has completed its task), select the next process in the Ready queue, which is also the process that has been waiting the longest, to execute 2. Whenever an executing process times out (the allowable period of execution has expired), return the process to the Ready queue, and select the next process in the Ready queue, to execute. This will continue until all the processes have terminated.
+
+1 Since the SRT and Round Robin scheduling algorithms are preemptive, processes may move between the Ready queue and the execution state multiple times before they terminate. For this reason, it is important to keep track of the remaining execution time for each process to prevent process starvation (delaying the execution of a process for an extended period).
+
+2 If a process terminates before its period of execution has expired, immediately select the next process in the Ready queue regardless of how much time remains in the current period of execution.
+
+Project Submission
+
+You will submit the project deliverable using the appropriate link on the Canvas course website. The project deliverable should include the following items (place all the files into a single zip file):
+
+The source code of the program (language of your choice)
+Documentation
+Describe the operation of your program
+List the results of the tests (see the Task section)
+Analyze the results of the program (see the Task section)
+Explain any issues/difficulties you had while writing the program
+A sample of tests results for the following files
+Simple.txt
+Easy.txt
+Hard.txt
+Any other files you would like to include with the project
+Note: You can refer to the Test Data file (included with the provided zip file) for help with verifying the proper operation of your program.
