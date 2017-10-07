@@ -38,98 +38,32 @@ namespace OSProject2
 
         }
     }
-    public class FCFS
+
+    public class RedRobin
     {
         public JobList JobList;
         public Queue JobQueue;
-        public FCFS(JobList jobList)
+        public int TimeQuantum { get; set; }
+
+        public RedRobin(JobList jobList)
         {
             JobList = jobList;
-        }
-
-        public void PerformFCFS()
-        {
-            JobQueue = new Queue();
-            Job currentJob = null;
-
-            for (int currentTime = 0; currentTime <= JobList.GetTotalJobListProcessTime(); currentTime++)
-            {
-                // iterate through Joblist
-                foreach(Job job in JobList)
-                {
-                    // if (!job.AddedToQ && Job.ArrivalTime == currentTime)
-                    {
-                        // job.AddedToQ = true
-                        // q.add(job)
-                    }
-                }
-
-                // if ((currentJob == null && !Queue.IsEmpty()) || (currentJob.CyclesRemaining == 0 && !Queue.IsEmpty()))
-                {  
-                    // if (currentJob != null && currentJob.cyclesRem == 0)
-                    {
-                        // currentJob.CompletionTime = currentTime
-                    }
-                    // currentJob = Queue.Pop()
-                }
-                // decrement currentJob.CycleRemaining
-            }
-            JobList.ComputeTurnAroundTime();
-        }
-
-    }
-
-    public class SJN
-    {
-        public JobList JobList;
-        public Queue JobQueue;
-
-        public SJN(JobList jobList)
-        {
-            JobList = jobList;
-        }
-
-        public void PerformSJN()
-        {
-            JobQueue = new Queue();
-            Job currentJob = null;
-
-            for (int currentTime = 0; currentTime <= JobList.GetTotalJobListProcessTime(); currentTime++)
-            {
-                // iterate through Joblist
-                {
-                    // if (!job.AddedToQ && Job.ArrivalTime == currentTime)
-                    {
-                        // job.AddedToQ = true
-                        // q.add(job)
-                    }
-                }
-
-                // if ((currentJob == null && !Queue.IsEmpty()) || (currentJob.CyclesRemaining == 0 && !Queue.IsEmpty()))
-                {
-                    // if (currentJob != null && currentJob.cyclesRem == 0)
-                    {
-                        // currentJob.CompletionTime = currentTime
-                    }
-
-                    // currentJob = shortest job in q
-                }
-
-                // decrement currentJob.CycleRemaining
-            }
-            JobList.ComputeTurnAroundTime();
         }
     }
 
     public class Job
     {
-        public Job() { }
+        public Job()
+        {
+            AddedToQueue = false;
+        }
         public Job(string jobString)
         {
             // Converts jobString into separate integers and assigns them to ArrivalTime and ReqTimeCycle
             string[] jobValues = jobString.Split(',');
             ArrivalTime = Int32.Parse(jobValues[0]);
             ReqTimeCycles = Int32.Parse(jobValues[1]);
+            CyclesRemaining = ReqTimeCycles;
         }
         public int ArrivalTime { get; set; }
         public int ReqTimeCycles { get; set; }
@@ -137,6 +71,7 @@ namespace OSProject2
         public bool IsComplete { get; set; }
         public int JobDuration { get; set; }
         public int CyclesRemaining { get; set; }
+        public bool AddedToQueue { get; set; }
     }
 
     public class JobList
@@ -172,7 +107,10 @@ namespace OSProject2
             return jobCount;
         }
 
-        public double ComputeTurnAroundTime()
+        /*
+         * Accepts list of completed jobs and computes turn around time 
+         */ 
+        public double ComputeTurnAroundTime(List<Job> completedList)
         {
             // for each job in list, subtract completion time from arrival time, then sum the results
             // divive the sum by GetJobCount()
