@@ -144,6 +144,8 @@ namespace OSProject2
                 // read next line
                 line = sr.ReadLine();
             }
+            sr.Close();
+
             return jobList;
         }
 
