@@ -42,14 +42,11 @@ namespace OSProject2
         public Job(string jobString)
         {
             // converts jobString into 2 distinct integers, assigning 1st to ArrivalTime and 2nd to ReqTimeCycle
-            ArrivalTime = Int32.Parse(jobString.Substring(0));
+         
         }
         public int ArrivalTime { get; set; }
         public int ReqTimeCycles { get; set; }
     }
-
-
-
 
     class Executable
     {
@@ -89,8 +86,12 @@ namespace OSProject2
         }
 
     }
+
+    
     class JobList
     {
-        public Job[] JobList;
+        public Job[] JobListArray;
+
+        // add job method
     }
 }
