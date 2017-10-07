@@ -108,13 +108,25 @@ namespace OSProject2
         }
 
         /*
-         * Accepts list of completed jobs and computes turn around time 
+         * Accepts list of completed jobs and computes turnaround time 
          */ 
         public void ComputeTurnaroundTimes(List<Job> completedList)
         {
-            // for each job in list, subtract completion time from arrival time, then sum the results
-            // divive the sum by GetJobCount()
-            // return result
+            double turnaroundTimeSum = 0;
+
+            // for each job in list, subtract arrival time from completion time, and then sum the results
+            foreach (var Job in completedList)
+            {
+                double turnaroundTime = Job.CompletionTime - Job.ArrivalTime;
+                Console.WriteLine(Job + " Turnaround Time: " + turnaroundTime);
+                turnaroundTimeSum += turnaroundTime;
+            }
+
+            // divide the sum of all turnaround times by the total number of jobs to get the average turnaround time
+            double averageTurnaroundTime = turnaroundTimeSum / GetJobCount();
+
+            Console.WriteLine("Average Turnaround Time: " + averageTurnaroundTime);
+            Console.ReadLine();
         }
     }
 

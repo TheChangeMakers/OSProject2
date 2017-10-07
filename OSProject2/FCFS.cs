@@ -14,7 +14,7 @@ namespace OSProject2
             JobList = jobList;
         }
 
-        public double PerformFCFS()
+        public void PerformFCFS()
         {
             // Stores completed jobs
             List<Job> completedJobs = new List<Job>();
@@ -71,7 +71,8 @@ namespace OSProject2
                 currentJob.CyclesRemaining -= 1;
             }
             // return turn around time
-            return JobList.ComputeTurnaroundTimes(completedJobs);
+            Console.WriteLine("First-Come, First-Served (FCFS) Information:");
+            JobList.ComputeTurnaroundTimes(completedJobs);
         }
 
     }

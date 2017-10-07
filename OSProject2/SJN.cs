@@ -19,7 +19,7 @@ namespace OSProject2
         /*
          * returns turn around time 
          */
-        public double PerformSJN()
+        public PerformSJN()
         {
             // Stores completed jobs
             List<Job> completedJobs = new List<Job>();
@@ -78,7 +78,8 @@ namespace OSProject2
                 currentJob.CyclesRemaining -= 1;
             }
             // return turn around time
-            return JobList.ComputeTurnaroundTimes(completedJobs);
+            Console.WriteLine("Shortest Job Next (SJN) Information:");
+            JobList.ComputeTurnaroundTimes(completedJobs);
         }
 
         /*
