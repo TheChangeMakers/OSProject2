@@ -13,13 +13,26 @@ namespace OSProject2
     {
         static void Main(string[] args)
         {
+            // Easy.txt
             File easyFile = new File(@"../../ProjectData/Easy.txt");
             JobList easyJobList = easyFile.ReadFile();
-            FCFS fcfs = new FCFS(easyJobList);
-            fcfs.PerformFCFS();
+            FCFS easyFCFS = new FCFS(easyJobList);
+            easyFCFS.PerformFCFS();
 
-            // get job count of easyJobList and print to console
-            Console.Write(easyJobList.GetJobCount());
+            // Medium.txt
+
+
+            // Hard.txt
+
+
+            // Simple1.txt
+
+
+            // Simple2.txt
+
+
+            // textbook.txt
+
 
             Console.ReadLine();
         }
@@ -104,7 +117,7 @@ namespace OSProject2
         {
             double turnaroundTimeSum = 0;
 
-            // for each job in list, subtract arrival time from completion time, and then sum the results
+            // for each job in the list, subtract arrival time from completion time and sum the results
             foreach (var Job in completedList)
             {
                 double turnaroundTime = Job.CompletionTime - Job.ArrivalTime;
@@ -120,11 +133,6 @@ namespace OSProject2
             Console.ReadLine();
         }
     }
-    
-    public class Executable
-    {
-        public string ExecutableName { get; set; }
-    }
 
     public class File
     {
@@ -137,6 +145,9 @@ namespace OSProject2
             jobList = new JobList();
         }
 
+        /*
+         * Reads a file line-by-line and adds jobs to the list
+         */
         public JobList ReadFile()
         {
             // read first line of file
@@ -158,8 +169,5 @@ namespace OSProject2
 
             return jobList;
         }
-
-
-        //public string FileName { get; set; }
     }
 }
