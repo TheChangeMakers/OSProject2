@@ -34,7 +34,34 @@ namespace OSProject2
             //Console.ReadLine();
         }
     }
+    class FCFS
+    {
+        public JobList JobList;
 
+        public FCFS(JobList jobList)
+        {
+            JobList = jobList;
+        }
+
+        public void PerformFCFS()
+        {
+            Job currentJob = null;
+
+            for (int currentTime = 0; currentTime <= JobList.GetTotalJobListProcessTime(); currentTime++)
+            {
+                // iterate through Joblist
+                    // if (!job.AddedToQ && Job.ArrivalTime == currentTime)
+                        // job.AddedToQ = true
+                        // q.add(job)
+
+                // if ((currentJob == null && !Queue.IsEmpty()) || (currentJob.CyclesRemaining == 0 && !Queue.IsEmpty()))
+                    // currentJob = Queue.Pop()
+
+                // decrement currentJob.CycleRemaining
+            }
+        }
+
+    }
     class Job
     {
         public Job(string jobString)
@@ -44,13 +71,11 @@ namespace OSProject2
             ArrivalTime = Int32.Parse(jobValues[0]);
             ReqTimeCycles = Int32.Parse(jobValues[1]);
         }
-
         public int ArrivalTime { get; set; }
         public int ReqTimeCycles { get; set; }
         public int CompletionTime { get; set; }
         public int JobDuration { get; set; }
     }
-
     class Executable
     {
         public string ExecutableName { get; set; }
@@ -63,34 +88,6 @@ namespace OSProject2
     {
         public int TQValue { get; set; }
     }
-    class SchedulingAlgorithm
-    {
-        public Job[] JobsArray; 
-        public int PageFaultsCount { get; set; }
-        public int TurnAroundTime { get; set; }
-        public void FCFS()
-        {
-
-        }
-
-        public void SJN()
-        {
-
-        }
-
-        public void SRT()
-        {
-
-        }
-
-        public void RoundRobin(TimeQuantum timeQuantum)
-        {
-
-        }
-
-    }
-
-    
     class JobList
     {
         public Job[] JobListArray;
@@ -99,6 +96,15 @@ namespace OSProject2
 
         public int TotalJobListProcessTime { get; set; }
 
+        public int GetTotalJobListProcessTime()
+        {
+            return 0;
+        }
+
         // Method to calculate TotalProcessTime (add up req time cycles for all jobs)
+    }
+    class Queue
+    {
+
     }
 }
