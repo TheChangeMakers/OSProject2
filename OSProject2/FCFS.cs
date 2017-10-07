@@ -70,7 +70,7 @@ namespace OSProject2
                 // decrement currentJob.CycleRemaining
                 currentJob.CyclesRemaining -= 1;
             }
-            // return turn around time
+
             Console.WriteLine("First-Come, First-Served (FCFS) Information:");
             JobList.ComputeTurnaroundTimes(completedJobs);
         }

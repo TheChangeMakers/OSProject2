@@ -44,11 +44,13 @@ namespace OSProject2
                 // only executes once, at beginning 
                 if (currentJob == null)
                 {
-                    // assign 1st job in Q to current job
-                    currentJob = JobQueue[0];
+                    int shortestIndex = FindShortestJob();
+
+                    // assign shortest job in Q to current job
+                    currentJob = JobQueue[shortestIndex];
 
                     // remove job from Q
-                    JobQueue.RemoveAt(0);
+                    JobQueue.RemoveAt(shortestIndex);
                 }
 
 
@@ -111,7 +113,6 @@ namespace OSProject2
 
         public int FindShortestJob()
         {
-            Job shortestJob = new Job();
             int currentShortestCycleCount = 0;
             int currentShortestIndex = 0;
 
