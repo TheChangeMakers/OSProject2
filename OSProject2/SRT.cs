@@ -53,8 +53,6 @@ namespace OSProject2
                     JobQueue.RemoveAt(shortestIndex);
                 }
 
-
-
                 // test if current job has completed all cycles 
                 if (currentJob.CyclesRemaining == 0)
                 {
@@ -94,7 +92,6 @@ namespace OSProject2
                         JobQueue.RemoveAt(indexOfNewShortestJob);
                     }
                 }
-
                 // decrement currentJob.CycleRemaining
                 currentJob.CyclesRemaining -= 1;
             }
@@ -103,12 +100,19 @@ namespace OSProject2
             JobList.ComputeTurnaroundTimes(completedJobs);
         }
 
-
-        /*************** Need to complete *************************/
         public bool IsShortest(Job currentJob)
         {
-            bool isShortest;
-            return false;
+            bool isShortest = true;
+
+            foreach(Job job in JobQueue)
+            {
+                if(currentJob.CyclesRemaining >= job.CyclesRemaining)
+                {
+                    isShortest = false;
+                }
+            }
+
+            return isShortest;
         }
 
         public int FindShortestJob()
