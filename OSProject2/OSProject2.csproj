@@ -45,6 +45,7 @@
     <Compile Include="FCFS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoundRobin.cs" />
     <Compile Include="SJN.cs" />
     <Compile Include="SRT.cs" />
   </ItemGroup>

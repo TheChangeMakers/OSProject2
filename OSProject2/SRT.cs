@@ -29,7 +29,7 @@ namespace OSProject2
             // Start at time 0 and go through total job process time
             for (int currentTime = 0; currentTime <= JobList.GetTotalJobListProcessTime(); currentTime++)
             {
-                // add new jobs to queue
+                // add new jobs to Q
                 for (int i = 0; i < JobList.GetJobCount(); i++)
                 {
                     // if job is not in Q and job arrival time = current time
@@ -53,8 +53,6 @@ namespace OSProject2
                     JobQueue.RemoveAt(shortestIndex);
                 }
 
-
-
                 // test if current job has completed all cycles 
                 if (currentJob.CyclesRemaining == 0)
                 {
@@ -76,7 +74,7 @@ namespace OSProject2
                         JobQueue.RemoveAt(shortestIndex);
                     }
                 }
-                else // now we know current job has cycles remaining 
+                else // current job has cycles remaining 
                 {
                     // if current job is not shorter than all jobs in Q
                     if (!IsShortest(currentJob))
@@ -98,6 +96,7 @@ namespace OSProject2
                 // decrement currentJob.CycleRemaining
                 currentJob.CyclesRemaining -= 1;
             }
+
             // compute turnaround times
             Console.WriteLine("Shortest Remaining Time (SRT) Information:");
             JobList.ComputeTurnaroundTimes(completedJobs);

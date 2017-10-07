@@ -17,7 +17,7 @@ namespace OSProject2
         }
 
         /*
-         * returns turn around time 
+         * returns turnaround time 
          */
         public PerformSJN()
         {
@@ -77,7 +77,8 @@ namespace OSProject2
                 // decrement currentJob.CycleRemaining
                 currentJob.CyclesRemaining -= 1;
             }
- 
+
+            // compute turnaround times
             Console.WriteLine("Shortest Job Next (SJN) Information:");
             JobList.ComputeTurnaroundTimes(completedJobs);
         }
