@@ -19,7 +19,7 @@ namespace OSProject2
         /*
          * returns turnaround time 
          */
-        public PerformSJN()
+        public void PerformSJN()
         {
             // Stores completed jobs
             List<Job> completedJobs = new List<Job>();

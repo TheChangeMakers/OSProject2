@@ -9,6 +9,7 @@ namespace OSProject2
     public class FCFS
     {
         public JobList JobList;
+
         public FCFS(JobList jobList)
         {
             JobList = jobList;
