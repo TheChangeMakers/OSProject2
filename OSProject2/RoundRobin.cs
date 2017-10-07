@@ -102,7 +102,7 @@ namespace OSProject2
             }
 
             // compute turnaround times
-            Console.WriteLine("Round Robin Information:");
+            Console.WriteLine("Round Robin (TQ=" + timeQuantum + ") Information:");
             JobList.ComputeTurnaroundTimes(completedJobs);
         }
     }

@@ -17,7 +17,14 @@ namespace OSProject2
             File easyFile = new File(@"../../ProjectData/Easy.txt");
             JobList easyJobList = easyFile.ReadFile();
             FCFS easyFCFS = new FCFS(easyJobList);
+            SJN easySJN = new SJN(easyJobList);
+            SRT easySRT = new SRT(easyJobList);
+            RoundRobin easyRR = new RoundRobin(easyJobList);
+
             easyFCFS.PerformFCFS();
+            easySJN.PerformSJN();
+            easySRT.PerformSRT();
+            easyRR.PerformRoundRobin(3);
 
             // Medium.txt
 
@@ -130,7 +137,6 @@ namespace OSProject2
 
             Console.WriteLine("\tAverage Turnaround Time: " + averageTurnaroundTime);
             Console.WriteLine();
-            Console.ReadLine();
         }
     }
 
