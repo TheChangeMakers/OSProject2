@@ -51,7 +51,7 @@ namespace OSProject2
 
         public double PerformRedRobin(int timeQuantum)
         {
-            int currentTimeQuantumValue;
+            int currentTimeQuantumValue = timeQuantum;
 
             // Stores completed jobs
             List<Job> completedJobs = new List<Job>();
@@ -114,27 +114,26 @@ namespace OSProject2
                 else // now we know current job has cycles remaining 
                 {
                     // if time quantum has expired
-                    if (currentTimeQuantumValue == 0)
+                    if (currentTimeQuantumValue == 0 && JobQueue[0] != null)
                     {
-                        // find index of new shortest job in Q
-                        int indexOfNewShortestJob = FindShortestJob();
-
                         // add current job to rear of Q
                         JobQueue.Add(currentJob);
 
-                        // assign new shortest job to currentJob
-                        currentJob = JobQueue[indexOfNewShortestJob];
+                        // assign 1st job in Q to current job
+                        currentJob = JobQueue[0];
 
-                        // remove shortest job from Q
-                        JobQueue.RemoveAt(indexOfNewShortestJob);
+                        // reset time quantum
+                        currentTimeQuantumValue = timeQuantum;
                     }
                 }
+
+                //decrement time quantum
+                currentTimeQuantumValue -= 1;
 
                 // decrement currentJob.CycleRemaining
                 currentJob.CyclesRemaining -= 1;
             }
-            // return turn around time
-            return JobList.ComputeTurnAroundTime(completedJobs);
+            JobList.ComputeTurnaroundTimes(completedJobs);
         }
     }
 }

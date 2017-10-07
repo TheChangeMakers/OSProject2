@@ -77,8 +77,8 @@ namespace OSProject2
                 // decrement currentJob.CycleRemaining
                 currentJob.CyclesRemaining -= 1;
             }
-            // return turn around time
-            return JobList.ComputeTurnaroundTimes(completedJobs);
+ 
+            JobList.ComputeTurnaroundTimes(completedJobs);
         }
 
         /*
