@@ -35,6 +35,7 @@ namespace OSProject2
             //Console.ReadLine();
         }
     }
+
     class FCFS
     {
         public JobList JobList;
@@ -63,6 +64,7 @@ namespace OSProject2
         }
 
     }
+
     class Job
     {
         public Job(string jobString)
@@ -79,53 +81,61 @@ namespace OSProject2
         public int JobDuration { get; set; }
         public int CyclesRemaining { get; set; }
     }
-    class Executable
-    {
-        public string ExecutableName { get; set; }
-    }
-    class File
-    {
-        public string FileName { get; set; }
-    }
-    class TimeQuantum
-    {
-        public int TQValue { get; set; }
-    }
+
     class JobList
     {
-        public Job[] JobListArray;
-
-        // Method to add job
-
-        public int TotalJobListProcessTime { get; set; }
-
-        public int GetTotalJobListProcessTime()
-        {
-            return 0;
-        }
-
-        // Method to calculate TotalProcessTime (add up req time cycles for all jobs)
-    }
-    class Queue
-    {
         public List<Job> ListOfJobs;
-        private int _processTime;
+
         // Add a job to the JobList
         public void AddJob(Job job)
         {
             ListOfJobs.Add(job);
         }
+
         // Get the total process time for all jobs in the JobList
         public int GetTotalJobListProcessTime()
         {
+            int processTime = 0;
+
             foreach (var Job in ListOfJobs)
             {
-                _processTime += Job.ReqTimeCycles;
+                processTime += Job.ReqTimeCycles;
             }
 
-            return _processTime;
+            return processTime;
         }
 
-        public int JobCount { get; set; }
+        // Get the total number of jobs in the JobList
+        public int GetJobCount()
+        {
+            int jobCount = 0;
+
+            foreach (var Job in ListOfJobs)
+            {
+                jobCount++;
+            }
+
+            return jobCount;
+        }
+    }
+
+    class Executable
+    {
+        public string ExecutableName { get; set; }
+    }
+
+    class File
+    {
+        public string FileName { get; set; }
+    }
+
+    class TimeQuantum
+    {
+        public int TQValue { get; set; }
+    }
+
+    class Queue
+    {
+        
     }
 }
