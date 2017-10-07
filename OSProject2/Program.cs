@@ -39,9 +39,18 @@ namespace OSProject2
 
     class Job
     {
+        public Job(string jobString)
+        {
+            // converts jobString into 2 distinct integers, assigning 1st to ArrivalTime and 2nd to ReqTimeCycle
+            ArrivalTime = Int32.Parse(jobString.Substring(0));
+        }
         public int ArrivalTime { get; set; }
         public int ReqTimeCycles { get; set; }
     }
+
+
+
+
     class Executable
     {
         public string ExecutableName { get; set; }
@@ -56,7 +65,32 @@ namespace OSProject2
     }
     class SchedulingAlgorithm
     {
+        public Job[] JobsArray; 
         public int PageFaultsCount { get; set; }
-        public 
+        public int TurnAroundTime { get; set; }
+        public void FCFS()
+        {
+
+        }
+
+        public void SJN()
+        {
+
+        }
+
+        public void SRT()
+        {
+
+        }
+
+        public void RoundRobin(TimeQuantum timeQuantum)
+        {
+
+        }
+
+    }
+    class JobList
+    {
+        public Job[] JobList;
     }
 }
