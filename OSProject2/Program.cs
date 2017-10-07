@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OSProject2
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -33,13 +33,15 @@ namespace OSProject2
             //Console.WriteLine("textbook.txt: \n" + inputTextbook);
             //Console.WriteLine();
             //Console.ReadLine();
+
+
+
         }
     }
-
-    class FCFS
+    public class FCFS
     {
         public JobList JobList;
-
+        public Queue JobQueue;
         public FCFS(JobList jobList)
         {
             JobList = jobList;
@@ -47,26 +49,81 @@ namespace OSProject2
 
         public void PerformFCFS()
         {
+            JobQueue = new Queue();
             Job currentJob = null;
 
             for (int currentTime = 0; currentTime <= JobList.GetTotalJobListProcessTime(); currentTime++)
             {
                 // iterate through Joblist
+                foreach(Job job in JobList)
+                {
                     // if (!job.AddedToQ && Job.ArrivalTime == currentTime)
+                    {
                         // job.AddedToQ = true
                         // q.add(job)
+                    }
+                }
 
                 // if ((currentJob == null && !Queue.IsEmpty()) || (currentJob.CyclesRemaining == 0 && !Queue.IsEmpty()))
+                {  
+                    // if (currentJob != null && currentJob.cyclesRem == 0)
+                    {
+                        // currentJob.CompletionTime = currentTime
+                    }
                     // currentJob = Queue.Pop()
-
+                }
                 // decrement currentJob.CycleRemaining
             }
+            JobList.ComputeTurnAroundTime();
         }
 
     }
 
-    class Job
+    public class SJN
     {
+        public JobList JobList;
+        public Queue JobQueue;
+
+        public SJN(JobList jobList)
+        {
+            JobList = jobList;
+        }
+
+        public void PerformSJN()
+        {
+            JobQueue = new Queue();
+            Job currentJob = null;
+
+            for (int currentTime = 0; currentTime <= JobList.GetTotalJobListProcessTime(); currentTime++)
+            {
+                // iterate through Joblist
+                {
+                    // if (!job.AddedToQ && Job.ArrivalTime == currentTime)
+                    {
+                        // job.AddedToQ = true
+                        // q.add(job)
+                    }
+                }
+
+                // if ((currentJob == null && !Queue.IsEmpty()) || (currentJob.CyclesRemaining == 0 && !Queue.IsEmpty()))
+                {
+                    // if (currentJob != null && currentJob.cyclesRem == 0)
+                    {
+                        // currentJob.CompletionTime = currentTime
+                    }
+
+                    // currentJob = shortest job in q
+                }
+
+                // decrement currentJob.CycleRemaining
+            }
+            JobList.ComputeTurnAroundTime();
+        }
+    }
+
+    public class Job
+    {
+        public Job() { }
         public Job(string jobString)
         {
             // Converts jobString into separate integers and assigns them to ArrivalTime and ReqTimeCycle
@@ -82,7 +139,7 @@ namespace OSProject2
         public int CyclesRemaining { get; set; }
     }
 
-    class JobList
+    public class JobList
     {
         public List<Job> ListOfJobs;
 
@@ -115,27 +172,27 @@ namespace OSProject2
             return jobCount;
         }
 
+        public double ComputeTurnAroundTime()
+        {
+            // for each job in list, subtract completion time from arrival time, then sum the results
+            // divive the sum by GetJobCount()
+            // return result
+            return 0;
+        }
     }
 
-    class Executable
+    public class Executable
     {
         public string ExecutableName { get; set; }
     }
 
-    class File
+    public class File
     {
         public string FileName { get; set; }
     }
 
-    class TimeQuantum
+    public class TimeQuantum
     {
         public int TQValue { get; set; }
-    }
-    
-    class Queue
-    {
-        // bool IsEmpty()
-        // void AddToRear()
-        // Job PopFromTop()
     }
 }
