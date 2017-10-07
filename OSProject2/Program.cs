@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -74,7 +75,9 @@ namespace OSProject2
         public int ArrivalTime { get; set; }
         public int ReqTimeCycles { get; set; }
         public int CompletionTime { get; set; }
+        public bool IsComplete { get; set; }
         public int JobDuration { get; set; }
+        public int CyclesRemaining { get; set; }
     }
     class Executable
     {
@@ -105,6 +108,24 @@ namespace OSProject2
     }
     class Queue
     {
+        public List<Job> ListOfJobs;
+        private int _processTime;
+        // Add a job to the JobList
+        public void AddJob(Job job)
+        {
+            ListOfJobs.Add(job);
+        }
+        // Get the total process time for all jobs in the JobList
+        public int GetTotalJobListProcessTime()
+        {
+            foreach (var Job in ListOfJobs)
+            {
+                _processTime += Job.ReqTimeCycles;
+            }
 
+            return _processTime;
+        }
+
+        public int JobCount { get; set; }
     }
 }
