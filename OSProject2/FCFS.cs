@@ -60,7 +60,7 @@ namespace OSProject2
                     completedJobs.Add(currentJob);
 
                     // test if jobs remaining in Q
-                    if (JobQueue[0] != null)
+                    if (JobQueue.Count == 0)
                     {
                         // assign first job in Q to current job
                         currentJob = JobQueue[0];

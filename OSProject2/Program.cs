@@ -15,6 +15,8 @@ namespace OSProject2
         {
             File easyFile = new File(@"../../ProjectData/Easy.txt");
             JobList easyJobList = easyFile.ReadFile();
+            FCFS fcfs = new FCFS(easyJobList);
+            fcfs.PerformFCFS();
 
             // get job count of easyJobList and print to console
             Console.Write(easyJobList.GetJobCount());
@@ -30,9 +32,11 @@ namespace OSProject2
             AddedToQueue = false;
         }
 
+        /*
+         * Accepts a string, parses it into separate integers, and assigns the integers to ArrivalTime and ReqTimeCycle
+         */
         public Job(string jobString)
         {
-            // Converts jobString into separate integers and assigns them to ArrivalTime and ReqTimeCycle
             string[] jobValues = jobString.Split(',');
             ArrivalTime = Int32.Parse(jobValues[0]);
             ReqTimeCycles = Int32.Parse(jobValues[1]);
@@ -57,13 +61,17 @@ namespace OSProject2
             ListOfJobs = new List<Job>();
         }
 
-        // Add a job to the JobList
+        /*
+         * Adds a job to the list
+         */
         public void AddJob(Job job)
         {
             ListOfJobs.Add(job);
         }
 
-        // Get the total process time for all jobs in the JobList
+        /*
+         * Returns the total process time for all jobs in the list
+         */
         public int GetTotalJobListProcessTime()
         {
             int processTime = 0;
@@ -75,7 +83,9 @@ namespace OSProject2
             return processTime;
         }
 
-        // Get the total number of jobs in the JobList
+        /*
+         * Returns the total number of jobs in the list
+         */
         public int GetJobCount()
         {
             int jobCount = 0;
@@ -88,7 +98,7 @@ namespace OSProject2
         }
 
         /*
-         * Accepts list of completed jobs and computes turnaround time 
+         * Accepts a list of completed jobs and computes the turnaround times for each job and the average turnaround time
          */ 
         public void ComputeTurnaroundTimes(List<Job> completedList)
         {
@@ -98,14 +108,14 @@ namespace OSProject2
             foreach (var Job in completedList)
             {
                 double turnaroundTime = Job.CompletionTime - Job.ArrivalTime;
-                Console.WriteLine(Job + " Turnaround Time: " + turnaroundTime);
+                Console.WriteLine("\t" + Job + " Turnaround Time: " + turnaroundTime);
                 turnaroundTimeSum += turnaroundTime;
             }
             
             // divide the sum of all turnaround times by the total number of jobs to get the average turnaround time
             double averageTurnaroundTime = turnaroundTimeSum / GetJobCount();
 
-            Console.WriteLine("Average Turnaround Time: " + averageTurnaroundTime);
+            Console.WriteLine("\tAverage Turnaround Time: " + averageTurnaroundTime);
             Console.WriteLine();
             Console.ReadLine();
         }
