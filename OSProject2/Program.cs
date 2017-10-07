@@ -31,6 +31,9 @@ namespace OSProject2
             Console.WriteLine("textbook.txt: \n" + inputTextbook);
             Console.WriteLine();
             Console.ReadLine();
+
+
+
         }
     }
 
@@ -51,5 +54,9 @@ namespace OSProject2
     {
         public int TQValue { get; set; }
     }
-
+    class SchedulingAlgorithm
+    {
+        public int PageFaultsCount { get; set; }
+        public 
+    }
 }
