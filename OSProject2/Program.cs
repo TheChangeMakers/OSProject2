@@ -101,22 +101,19 @@ namespace OSProject2
             {
                 processTime += Job.ReqTimeCycles;
             }
-
             return processTime;
         }
-
         // Get the total number of jobs in the JobList
         public int GetJobCount()
         {
             int jobCount = 0;
-
             foreach (var Job in ListOfJobs)
             {
                 jobCount++;
             }
-
             return jobCount;
         }
+
     }
 
     class Executable
@@ -133,9 +130,12 @@ namespace OSProject2
     {
         public int TQValue { get; set; }
     }
-
+    
+    class Queue
     class Queue
     {
-        
+        // bool IsEmpty()
+        // void AddToRear()
+        // Job PopFromTop()
     }
 }
