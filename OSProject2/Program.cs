@@ -54,9 +54,6 @@ namespace OSProject2
         public int CyclesRemaining { get; set; }
     }
 
-
-
-
     class Executable
     {
         public string ExecutableName { get; set; }
@@ -95,6 +92,8 @@ namespace OSProject2
         }
 
     }
+
+    
     class JobList
     {
         public List<Job> ListOfJobs;
