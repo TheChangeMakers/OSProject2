@@ -93,28 +93,15 @@ namespace OSProject2
     }
     class JobList
     {
-        public Job[] JobListArray;
-
-        // Method to add job
-
-        public int TotalJobListProcessTime { get; set; }
-
-        public int GetTotalJobListProcessTime()
-        {
-            return 0;
-        }
-
-        // Method to calculate TotalProcessTime (add up req time cycles for all jobs)
-    }
-    class Queue
-    {
         public List<Job> ListOfJobs;
         private int _processTime;
+
         // Add a job to the JobList
         public void AddJob(Job job)
         {
             ListOfJobs.Add(job);
         }
+
         // Get the total process time for all jobs in the JobList
         public int GetTotalJobListProcessTime()
         {
@@ -127,5 +114,12 @@ namespace OSProject2
         }
 
         public int JobCount { get; set; }
+
+    }
+    class Queue
+    {
+        // bool IsEmpty()
+        // void AddToRear()
+        // Job PopFromTop()
     }
 }

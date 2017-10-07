@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -34,27 +35,50 @@ namespace OSProject2
             //Console.ReadLine();
         }
     }
+    class FCFS
+    {
+        public JobList JobList;
 
+        public FCFS(JobList jobList)
+        {
+            JobList = jobList;
+        }
+
+        public void PerformFCFS()
+        {
+            Job currentJob = null;
+
+            for (int currentTime = 0; currentTime <= JobList.GetTotalJobListProcessTime(); currentTime++)
+            {
+                // iterate through Joblist
+                    // if (!job.AddedToQ && Job.ArrivalTime == currentTime)
+                        // job.AddedToQ = true
+                        // q.add(job)
+
+                // if ((currentJob == null && !Queue.IsEmpty()) || (currentJob.CyclesRemaining == 0 && !Queue.IsEmpty()))
+                    // currentJob = Queue.Pop()
+
+                // decrement currentJob.CycleRemaining
+            }
+        }
+
+    }
     class Job
     {
         public Job(string jobString)
         {
             // converts jobString into 2 distinct integers, assigning 1st to ArrivalTime and 2nd to ReqTimeCycle
-<<<<<<< HEAD
-         
-=======
             string[] jobValues = jobString.Split(',');
             ArrivalTime = Int32.Parse(jobValues[0]);
             ReqTimeCycles = Int32.Parse(jobValues[1]);
->>>>>>> 493d4d5cc9bbf9c2c97a44f504228afd046baa0e
         }
-
         public int ArrivalTime { get; set; }
         public int ReqTimeCycles { get; set; }
         public int CompletionTime { get; set; }
+        public bool IsComplete { get; set; }
         public int JobDuration { get; set; }
+        public int CyclesRemaining { get; set; }
     }
-
     class Executable
     {
         public string ExecutableName { get; set; }
@@ -67,46 +91,47 @@ namespace OSProject2
     {
         public int TQValue { get; set; }
     }
-    class SchedulingAlgorithm
-    {
-        public Job[] JobsArray; 
-        public int PageFaultsCount { get; set; }
-        public int TurnAroundTime { get; set; }
-        public void FCFS()
-        {
-
-        }
-
-        public void SJN()
-        {
-
-        }
-
-        public void SRT()
-        {
-
-        }
-
-        public void RoundRobin(TimeQuantum timeQuantum)
-        {
-
-        }
-
-    }
-
-    
     class JobList
     {
         public Job[] JobListArray;
 
-<<<<<<< HEAD
-        // add job method
-=======
         // Method to add job
 
         public int TotalJobListProcessTime { get; set; }
 
+        public int GetTotalJobListProcessTime()
+        {
+            return 0;
+        }
+
         // Method to calculate TotalProcessTime (add up req time cycles for all jobs)
->>>>>>> 493d4d5cc9bbf9c2c97a44f504228afd046baa0e
+    }
+    class Queue
+    {
+<<<<<<< HEAD
+
+=======
+        public List<Job> ListOfJobs;
+        private int _processTime;
+
+        // Add a job to the JobList
+        public void AddJob(Job job)
+        {
+            ListOfJobs.Add(job);
+        }
+
+        // Get the total process time for all jobs in the JobList
+        public int GetTotalJobListProcessTime()
+        {
+            foreach (var Job in ListOfJobs)
+            {
+                _processTime += Job.ReqTimeCycles;
+            }
+
+            return _processTime;
+        }
+
+        public int JobCount { get; set; }
+>>>>>>> 12ffc92899d9804ecc79d872267a4d8524803ebb
     }
 }
