@@ -198,12 +198,11 @@ namespace OSProject2
         /*
          * Accepts list of completed jobs and computes turn around time 
          */ 
-        public double ComputeTurnAroundTime(List<Job> completedList)
+        public void ComputeTurnaroundTimes(List<Job> completedList)
         {
             // for each job in list, subtract completion time from arrival time, then sum the results
             // divive the sum by GetJobCount()
             // return result
-            return 0;
         }
     }
 
