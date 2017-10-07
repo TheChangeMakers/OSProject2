@@ -69,7 +69,7 @@ namespace OSProject2
     {
         public Job(string jobString)
         {
-            // converts jobString into 2 distinct integers, assigning 1st to ArrivalTime and 2nd to ReqTimeCycle
+            // Converts jobString into separate integers and assigns them to ArrivalTime and ReqTimeCycle
             string[] jobValues = jobString.Split(',');
             ArrivalTime = Int32.Parse(jobValues[0]);
             ReqTimeCycles = Int32.Parse(jobValues[1]);
@@ -103,6 +103,7 @@ namespace OSProject2
             }
             return processTime;
         }
+
         // Get the total number of jobs in the JobList
         public int GetJobCount()
         {
@@ -131,7 +132,6 @@ namespace OSProject2
         public int TQValue { get; set; }
     }
     
-    class Queue
     class Queue
     {
         // bool IsEmpty()
