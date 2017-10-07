@@ -162,9 +162,4 @@ namespace OSProject2
 
         //public string FileName { get; set; }
     }
-
-    public class TimeQuantum
-    {
-        public int TQValue { get; set; }
-    }
 }
