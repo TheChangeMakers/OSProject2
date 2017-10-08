@@ -21,10 +21,10 @@ namespace OSProject2
             SRT easySRT = new SRT(easyJobList);
             RoundRobin easyRR = new RoundRobin(easyJobList);
 
-            easyFCFS.PerformFCFS();
-            easySJN.PerformSJN();
-            easySRT.PerformSRT();
-            easyRR.PerformRoundRobin(3);
+            //easyFCFS.PerformFCFS();
+            //easySJN.PerformSJN();
+            //easySRT.PerformSRT();
+            //easyRR.PerformRoundRobin(3);
 
             // Medium.txt
 

@@ -64,7 +64,7 @@ namespace OSProject2
                     completedJobs.Add(currentJob);
 
                     // test if jobs remaining in Q
-                    if (JobQueue.Count == 0)
+                    if (JobQueue.Count != 0)
                     {
                         int shortestIndex = FindShortestJob();
 
