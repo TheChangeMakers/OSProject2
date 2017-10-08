@@ -81,7 +81,7 @@ namespace OSProject2
                 else // current job has cycles remaining 
                 {
                     // if time quantum has expired
-                    if (currentTimeQuantumValue == 0 && JobQueue[0] != null)
+                    if (currentTimeQuantumValue == 0 && JobQueue.Count != 0)
                     {
                         // add current job to rear of Q
                         JobQueue.Add(currentJob);
