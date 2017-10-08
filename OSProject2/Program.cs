@@ -13,183 +13,192 @@ namespace OSProject2
     {
         static void Main(string[] args)
         {
-            // Easy.txt
-            File easyFile = new File(@"../../ProjectData/Easy.txt");
-            JobList easyJobList = easyFile.ReadFile();
-            FCFS easyFCFS = new FCFS(easyJobList);
-            SJN easySJN = new SJN(easyJobList);
-            SRT easySRT = new SRT(easyJobList);
-            RoundRobin easyRR = new RoundRobin(easyJobList);
+            ResultsList easyList = new ResultsList();
 
-            //easyFCFS.PerformFCFS();
-            //easySJN.PerformSJN();
-            //easySRT.PerformSRT();
-            //easyRR.PerformRoundRobin(3);
+            // Easy.txt
+            Console.WriteLine("Results: Easy.txt");
+            Console.WriteLine("-----------------");
+            File easyFileFCFS = new File(@"../../ProjectData/Easy.txt");
+            JobList easyJobListFCFS = easyFileFCFS.ReadFile();
+            FCFS easyFCFS = new FCFS(easyJobListFCFS);
+            Results easyFCFSResult = easyFCFS.PerformFCFS();
+            easyList.AddResult(easyFCFSResult);
+
+            File easyFileSJN = new File(@"../../ProjectData/Easy.txt");
+            JobList easyJobListSJN = easyFileSJN.ReadFile();
+            SJN easySJN = new SJN(easyJobListSJN);
+            Results easySJNResult = easySJN.PerformSJN();
+            easyList.AddResult(easySJNResult);
+
+            File easyFileSRT = new File(@"../../ProjectData/Easy.txt");
+            JobList easyJobListSRT = easyFileSRT.ReadFile();
+            SRT easySRT = new SRT(easyJobListSRT);
+            Results easySRTResult = easySRT.PerformSRT();
+            easyList.AddResult(easySRTResult);
+
+            File easyFileRR = new File(@"../../ProjectData/Easy.txt");
+            JobList easyJobListRR = easyFileRR.ReadFile();
+            RoundRobin easyRR = new RoundRobin(easyJobListRR);
+            Results easyRRResult = easyRR.PerformRoundRobin(3);
+            easyList.AddResult(easyRRResult);
+            easyList.ComputeBestResult();
+
+
+            ResultsList mediumList = new ResultsList();
 
             // Medium.txt
+            Console.WriteLine("Results: Medium.txt");
+            Console.WriteLine("-------------------");
+            File mediumFileFCFS = new File(@"../../ProjectData/Medium.txt");
+            JobList mediumJobListFCFS = mediumFileFCFS.ReadFile();
+            FCFS mediumFCFS = new FCFS(mediumJobListFCFS);
+            Results mediumFCFSResult = mediumFCFS.PerformFCFS();
+            mediumList.AddResult(mediumFCFSResult);
+
+            File mediumFileSJN = new File(@"../../ProjectData/Medium.txt");
+            JobList mediumJobListSJN = mediumFileSJN.ReadFile();
+            SJN mediumSJN = new SJN(mediumJobListSJN);
+            Results mediumSJNResult = mediumSJN.PerformSJN();
+            mediumList.AddResult(mediumSJNResult);
+
+            File mediumFileSRT = new File(@"../../ProjectData/Medium.txt");
+            JobList mediumJobListSRT = mediumFileSRT.ReadFile();
+            SRT mediumSRT = new SRT(mediumJobListSRT);
+            Results mediumSRTResult = mediumSRT.PerformSRT();
+            mediumList.AddResult(mediumSRTResult);
+
+            File mediumFileRR = new File(@"../../ProjectData/Medium.txt");
+            JobList mediumJobListRR = mediumFileRR.ReadFile();
+            RoundRobin mediumRR = new RoundRobin(mediumJobListRR);
+            Results mediumRRResult = mediumRR.PerformRoundRobin(3);
+            mediumList.AddResult(mediumRRResult);
+            mediumList.ComputeBestResult();
 
 
+            ResultsList hardList = new ResultsList();
             // Hard.txt
+            Console.WriteLine("Results: Hard.txt");
+            Console.WriteLine("-----------------");
+            File hardFileFCFS = new File(@"../../ProjectData/Hard.txt");
+            JobList hardJobListFCFS = hardFileFCFS.ReadFile();
+            FCFS hardFCFS = new FCFS(hardJobListFCFS);
+            Results hardFCFSResults = hardFCFS.PerformFCFS();
+            hardList.AddResult(hardFCFSResults);
+
+            File hardFileSJN = new File(@"../../ProjectData/Hard.txt");
+            JobList hardJobListSJN = hardFileSJN.ReadFile();
+            SJN hardSJN = new SJN(hardJobListSJN);
+            Results hardSJNResults = hardSJN.PerformSJN();
+            hardList.AddResult(hardSJNResults);
 
 
+            File hardFileSRT = new File(@"../../ProjectData/Hard.txt");
+            JobList hardJobListSRT = hardFileSRT.ReadFile();
+            SRT hardSRT = new SRT(hardJobListSRT);
+            Results hardSRTresults = hardSRT.PerformSRT();
+            hardList.AddResult(hardSRTresults);
+
+            File hardFileRR = new File(@"../../ProjectData/Hard.txt");
+            JobList hardJobListRR = hardFileRR.ReadFile();
+            RoundRobin hardRR = new RoundRobin(hardJobListRR);
+            Results hardRRResults = hardRR.PerformRoundRobin(3);
+            hardList.AddResult(hardRRResults);
+            hardList.ComputeBestResult();
+
+
+
+            ResultsList simple1List = new ResultsList();
             // Simple1.txt
+            Console.WriteLine("Results: Simple1.txt");
+            Console.WriteLine("--------------------");
+            File simple1FileFCFS = new File(@"../../ProjectData/Simple1.txt");
+            JobList simple1JobListFCFS = simple1FileFCFS.ReadFile();
+            FCFS simple1FCFS = new FCFS(simple1JobListFCFS);
+            Results simple1FCFSResults = simple1FCFS.PerformFCFS();
+            simple1List.AddResult(simple1FCFSResults);
+
+            File simple1FileSJN = new File(@"../../ProjectData/Simple1.txt");
+            JobList simple1JobListSJN = simple1FileSJN.ReadFile();
+            SJN simple1SJN = new SJN(simple1JobListSJN);
+            Results simple1SJNResult = simple1SJN.PerformSJN();
+            simple1List.AddResult(simple1SJNResult);
+
+            File simple1FileSRT = new File(@"../../ProjectData/Simple1.txt");
+            JobList simple1JobListSRT = simple1FileSRT.ReadFile();
+            SRT simple1SRT = new SRT(simple1JobListSRT);
+            Results simple1SRTResult = simple1SRT.PerformSRT();
+            simple1List.AddResult(simple1SRTResult);
+
+            File simple1FileRR = new File(@"../../ProjectData/Simple1.txt");
+            JobList simple1JobListRR = simple1FileRR.ReadFile();
+            RoundRobin simple1RR = new RoundRobin(simple1JobListRR);
+            Results simple1RRREsult = simple1RR.PerformRoundRobin(3);
+            simple1List.AddResult(simple1RRREsult);
+            simple1List.ComputeBestResult();
 
 
+            ResultsList simple2List = new ResultsList();
             // Simple2.txt
+            Console.WriteLine("Results: Simple2.txt");
+            Console.WriteLine("--------------------");
+            File simple2FileFCFS = new File(@"../../ProjectData/Simple2.txt");
+            JobList simple2JobListFCFS = simple2FileFCFS.ReadFile();
+            FCFS simple2FCFS = new FCFS(simple2JobListFCFS);
+            Results simple2FCFSResult = simple2FCFS.PerformFCFS();
+            simple2List.AddResult(simple2FCFSResult);
+
+            File simple2FileSJN = new File(@"../../ProjectData/Simple2.txt");
+            JobList simple2JobListSJN = simple2FileSJN.ReadFile();
+            SJN simple2SJN = new SJN(simple2JobListSJN);
+            Results simple2SJNResult = simple2SJN.PerformSJN();
+            simple2List.AddResult(simple2SJNResult);
+
+            File simple2FileSRT = new File(@"../../ProjectData/Simple2.txt");
+            JobList simple2JobListSRT = simple2FileSRT.ReadFile();
+            SRT simple2SRT = new SRT(simple2JobListSRT);
+            Results simple2SRTResult = simple2SRT.PerformSRT();
+            simple2List.AddResult(simple2SRTResult);
+
+            File simple2FileRR = new File(@"../../ProjectData/Simple2.txt");
+            JobList simple2JobListRR = simple2FileRR.ReadFile();
+            RoundRobin simple2RR = new RoundRobin(simple2JobListRR);
+            Results simple2RRResult = simple2RR.PerformRoundRobin(3);
+            simple2List.AddResult(simple2RRResult);
+            simple2List.ComputeBestResult();
 
 
+            ResultsList tbList = new ResultsList();
             // textbook.txt
+            Console.WriteLine("Results: textbook.txt");
+            Console.WriteLine("---------------------");
+            File textbookFileFCFS = new File(@"../../ProjectData/textbook.txt");
+            JobList textbookJobListFCFS = textbookFileFCFS.ReadFile();
+            FCFS textbookFCFS = new FCFS(textbookJobListFCFS);
+            Results tbFCFSResult = textbookFCFS.PerformFCFS();
+            tbList.AddResult(tbFCFSResult);
+
+            File textbookFileSJN = new File(@"../../ProjectData/textbook.txt");
+            JobList textbookJobListSJN = textbookFileSJN.ReadFile();
+            SJN textbookSJN = new SJN(textbookJobListSJN);
+            Results tbSJNResult = textbookSJN.PerformSJN();
+            tbList.AddResult(tbSJNResult);
+
+            File textbookFileSRT = new File(@"../../ProjectData/textbook.txt");
+            JobList textbookJobListSRT = textbookFileSRT.ReadFile();
+            SRT textbookSRT = new SRT(textbookJobListSRT);
+            Results tbSRTResults = textbookSRT.PerformSRT();
+            tbList.AddResult(tbSRTResults);
+
+
+            File textbookFileRR = new File(@"../../ProjectData/textbook.txt");
+            JobList textbookJobListRR = textbookFileRR.ReadFile();
+            RoundRobin textbookRR = new RoundRobin(textbookJobListRR);
+            Results tbRRResults = textbookRR.PerformRoundRobin(3);
+            tbList.AddResult(tbRRResults);
+            tbList.ComputeBestResult();
 
 
             Console.ReadLine();
-        }
-    }
-
-    public class Job
-    {
-        public Job()
-        {
-            AddedToQueue = false;
-        }
-
-        /*
-         * Accepts a string, parses it into separate integers, and assigns the integers to ArrivalTime and ReqTimeCycle
-         */
-        public Job(string jobString)
-        {
-            string[] jobValues = jobString.Split(',');
-            ArrivalTime = Int32.Parse(jobValues[0]);
-            ReqTimeCycles = Int32.Parse(jobValues[1]);
-            CyclesRemaining = ReqTimeCycles;
-        }
-
-        public int ArrivalTime { get; set; }
-        public int ReqTimeCycles { get; set; }
-        public int CompletionTime { get; set; }
-        //public bool IsComplete { get; set; }
-        //public int JobDuration { get; set; }
-        public int CyclesRemaining { get; set; }
-        public bool AddedToQueue { get; set; }
-    }
-
-    public class JobList
-    {
-        public List<Job> ListOfJobs;
-
-        public JobList()
-        {
-            ListOfJobs = new List<Job>();
-        }
-
-        /*
-         * Adds a job to the list
-         */
-        public void AddJob(Job job)
-        {
-            ListOfJobs.Add(job);
-        }
-
-        /*
-         * Returns the total process time for all jobs in the list
-         */
-        public int GetTotalJobListProcessTime()
-        {
-            int processTime = 0;
-
-            foreach (var Job in ListOfJobs)
-            {
-                processTime += Job.ReqTimeCycles;
-            }
-            return processTime;
-        }
-
-        /*
-         * Returns the total number of jobs in the list
-         */
-        public int GetJobCount()
-        {
-            int jobCount = 0;
-
-            foreach (var Job in ListOfJobs)
-            {
-                jobCount++;
-            }
-            return jobCount;
-        }
-
-        /*
-         * Accepts a list of completed jobs and computes the turnaround times for each job and the average turnaround time
-         */ 
-        public void ComputeTurnaroundTimes(List<Job> completedList)
-        {
-            Job t;
-
-            // bubble sort list
-            for (int p = 0; p <= completedList.Count - 2; p++)
-            {
-                for (int i = 0; i <= completedList.Count - 2; i++)
-                {
-                    if (completedList[i].ArrivalTime > completedList[i + 1].ArrivalTime)
-                    {
-                        t = completedList[i + 1];
-                        completedList[i + 1] = completedList[i];
-                        completedList[i] = t;
-                    }
-                }
-            }
-
-            double turnaroundTimeSum = 0;
-
-            // for each job in the list, subtract arrival time from completion time and sum the results
-            foreach (var Job in completedList)
-            {
-                double turnaroundTime = Job.CompletionTime - Job.ArrivalTime;
-                Console.WriteLine("\t" + Job + " Turnaround Time: " + turnaroundTime);
-                turnaroundTimeSum += turnaroundTime;
-            }
-            
-            // divide the sum of all turnaround times by the total number of jobs to get the average turnaround time
-            double averageTurnaroundTime = turnaroundTimeSum / GetJobCount();
-
-            Console.WriteLine("\tAverage Turnaround Time: " + averageTurnaroundTime);
-            Console.WriteLine();
-        }
-    }
-
-    public class File
-    {
-        private StreamReader sr;
-        private JobList jobList;
-
-        public File(string path)
-        {
-            sr = new StreamReader(path);
-            jobList = new JobList();
-        }
-
-        /*
-         * Reads a file line-by-line and adds jobs to the list
-         */
-        public JobList ReadFile()
-        {
-            // read first line of file
-            string line = sr.ReadLine();
-
-            // while there are more lines to read
-            while (line != null)
-            {
-                // create a job from line
-                Job newJob = new Job(line);
-
-                // add job to list
-                jobList.AddJob(newJob);
-
-                // read next line
-                line = sr.ReadLine();
-            }
-            sr.Close();
-
-            return jobList;
         }
     }
 }

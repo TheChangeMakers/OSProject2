@@ -16,7 +16,7 @@ namespace OSProject2
             JobList = jobList;
         }
 
-        public void PerformRoundRobin(int timeQuantum)
+        public Results PerformRoundRobin(int timeQuantum)
         {
             int currentTimeQuantumValue = timeQuantum;
 
@@ -109,7 +109,8 @@ namespace OSProject2
 
             // compute turnaround times
             Console.WriteLine("Round Robin (TQ=" + timeQuantum + ") Information:");
-            JobList.ComputeTurnaroundTimes(completedJobs);
+            Results newResult = JobList.ComputeTurnaroundTimes("Round Robin", completedJobs);
+            return newResult;
         }
     }
 }

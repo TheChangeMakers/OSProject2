@@ -16,7 +16,7 @@ namespace OSProject2
             JobList = jobList;
         }
 
-        public void PerformSRT()
+        public Results PerformSRT()
         {
             // Stores completed jobs
             List<Job> completedJobs = new List<Job>();
@@ -102,7 +102,8 @@ namespace OSProject2
 
             // compute turnaround times
             Console.WriteLine("Shortest Remaining Time (SRT) Information:");
-            JobList.ComputeTurnaroundTimes(completedJobs);
+            Results newResult = JobList.ComputeTurnaroundTimes("SRT", completedJobs);
+            return newResult;
         }
 
         public bool IsShortest(Job currentJob)

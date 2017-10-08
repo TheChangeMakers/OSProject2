@@ -19,7 +19,7 @@ namespace OSProject2
         /*
          * returns turnaround time 
          */
-        public void PerformSJN()
+        public Results PerformSJN()
         {
             // Stores completed jobs
             List<Job> completedJobs = new List<Job>();
@@ -84,7 +84,8 @@ namespace OSProject2
 
             // compute turnaround times
             Console.WriteLine("Shortest Job Next (SJN) Information:");
-            JobList.ComputeTurnaroundTimes(completedJobs);
+            Results newResult = JobList.ComputeTurnaroundTimes("SJN", completedJobs);
+            return newResult;
         }
 
         /*
