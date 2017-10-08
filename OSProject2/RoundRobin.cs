@@ -94,11 +94,14 @@ namespace OSProject2
                     }
                 }
 
-                // decrement time quantum
-                currentTimeQuantumValue -= 1;
+                if (currentJob.CyclesRemaining > 0)
+                {
+                    // decrement time quantum
+                    currentTimeQuantumValue -= 1;
 
-                // decrement currentJob.CycleRemaining
-                currentJob.CyclesRemaining -= 1;
+                    // decrement currentJob.CycleRemaining
+                    currentJob.CyclesRemaining -= 1;
+                }
             }
 
             // compute turnaround times

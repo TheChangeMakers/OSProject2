@@ -60,7 +60,7 @@ namespace OSProject2
                     completedJobs.Add(currentJob);
 
                     // test if jobs remaining in Q
-                    if (JobQueue.Count == 0)
+                    if (JobQueue.Count != 0)
                     {
                         // assign first job in Q to current job
                         currentJob = JobQueue[0];
@@ -68,8 +68,12 @@ namespace OSProject2
                         JobQueue.RemoveAt(0);
                     }
                 }
-                // decrement currentJob.CycleRemaining
-                currentJob.CyclesRemaining -= 1;
+
+                if (currentJob.CyclesRemaining > 0)
+                {
+                    // decrement currentJob.CycleRemaining
+                    currentJob.CyclesRemaining -= 1;
+                }
             }
 
             // compute turnaround times

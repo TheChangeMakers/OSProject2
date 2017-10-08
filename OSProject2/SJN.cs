@@ -74,8 +74,12 @@ namespace OSProject2
                         JobQueue.RemoveAt(shortestIndex);
                     }
                 }
-                // decrement currentJob.CycleRemaining
-                currentJob.CyclesRemaining -= 1;
+
+                if (currentJob.CyclesRemaining > 0)
+                {
+                    // decrement currentJob.CycleRemaining
+                    currentJob.CyclesRemaining -= 1;
+                }
             }
 
             // compute turnaround times
