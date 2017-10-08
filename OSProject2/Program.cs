@@ -198,6 +198,44 @@ namespace OSProject2
             tbList.ComputeBestResult();
 
 
+            Console.WriteLine("Results: Red Robin Trials with medium.txt");
+            Console.WriteLine("------------------------------------------");
+
+            mediumFileRR = new File(@"../../ProjectData/Medium.txt");
+            mediumJobListRR = mediumFileRR.ReadFile();
+            mediumRR = new RoundRobin(mediumJobListRR);
+            mediumRRResult = mediumRR.PerformRoundRobin(1);
+
+            mediumList = new ResultsList();
+            mediumFileRR = new File(@"../../ProjectData/Medium.txt");
+            mediumJobListRR = mediumFileRR.ReadFile();
+            mediumRR = new RoundRobin(mediumJobListRR);
+            mediumRRResult = mediumRR.PerformRoundRobin(2);
+
+            mediumList = new ResultsList();
+            mediumFileRR = new File(@"../../ProjectData/Medium.txt");
+            mediumJobListRR = mediumFileRR.ReadFile();
+            mediumRR = new RoundRobin(mediumJobListRR);
+            mediumRRResult = mediumRR.PerformRoundRobin(5);
+
+            mediumList = new ResultsList();
+            mediumFileRR = new File(@"../../ProjectData/Medium.txt");
+            mediumJobListRR = mediumFileRR.ReadFile();
+            mediumRR = new RoundRobin(mediumJobListRR);
+            mediumRRResult = mediumRR.PerformRoundRobin(10);
+
+            mediumList = new ResultsList();
+            mediumFileRR = new File(@"../../ProjectData/Medium.txt");
+            mediumJobListRR = mediumFileRR.ReadFile();
+            mediumRR = new RoundRobin(mediumJobListRR);
+            mediumRRResult = mediumRR.PerformRoundRobin(15);
+
+            mediumList = new ResultsList();
+            mediumFileRR = new File(@"../../ProjectData/Medium.txt");
+            mediumJobListRR = mediumFileRR.ReadFile();
+            mediumRR = new RoundRobin(mediumJobListRR);
+            mediumRRResult = mediumRR.PerformRoundRobin(20);
+
             Console.ReadLine();
         }
     }

@@ -86,8 +86,7 @@ namespace OSProject2
                 finalResult.Append(" each with an Average Turnaround Time of " + ListOfResults[bestResultIndex].TT + "\n\n\n");
 
                 System.Console.WriteLine(finalResult.ToString());
-            }
-            
+            }  
         }
     }
 }
