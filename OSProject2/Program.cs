@@ -122,6 +122,22 @@ namespace OSProject2
          */ 
         public void ComputeTurnaroundTimes(List<Job> completedList)
         {
+            Job t;
+
+            // bubble sort list
+            for (int p = 0; p <= completedList.Count - 2; p++)
+            {
+                for (int i = 0; i <= completedList.Count - 2; i++)
+                {
+                    if (completedList[i].ArrivalTime > completedList[i + 1].ArrivalTime)
+                    {
+                        t = completedList[i + 1];
+                        completedList[i + 1] = completedList[i];
+                        completedList[i] = t;
+                    }
+                }
+            }
+
             double turnaroundTimeSum = 0;
 
             // for each job in the list, subtract arrival time from completion time and sum the results
