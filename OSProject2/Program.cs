@@ -24,7 +24,7 @@ namespace OSProject2
             //easyFCFS.PerformFCFS();
             //easySJN.PerformSJN();
             //easySRT.PerformSRT();
-            easyRR.PerformRoundRobin(3);
+            //easyRR.PerformRoundRobin(3);
 
             // Medium.txt
 
