@@ -66,8 +66,8 @@ namespace OSProject2
         public int ArrivalTime { get; set; }
         public int ReqTimeCycles { get; set; }
         public int CompletionTime { get; set; }
-        public bool IsComplete { get; set; }
-        public int JobDuration { get; set; }
+        //public bool IsComplete { get; set; }
+        //public int JobDuration { get; set; }
         public int CyclesRemaining { get; set; }
         public bool AddedToQueue { get; set; }
     }

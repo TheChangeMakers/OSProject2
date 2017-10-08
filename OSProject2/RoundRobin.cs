@@ -86,6 +86,9 @@ namespace OSProject2
                         // add current job to rear of Q
                         JobQueue.Add(currentJob);
 
+                        // remove job at front of Q 
+                        JobQueue.RemoveAt(0);
+
                         // assign 1st job in Q to current job
                         currentJob = JobQueue[0];
 
